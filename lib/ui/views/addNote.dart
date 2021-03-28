@@ -72,7 +72,7 @@ class _AddNoteState extends State<AddNote> {
                     Navigator.pop(context);
                   }
                 },
-                child: Text('add Note', style: TextStyle(color: Colors.white)),
+                child: Text('Add Note', style: TextStyle(color: Colors.white)),
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue)),
