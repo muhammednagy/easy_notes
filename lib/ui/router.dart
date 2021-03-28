@@ -1,4 +1,5 @@
 import 'package:easy_notes/ui/views/addNote.dart';
+import 'package:easy_notes/ui/views/editNote.dart';
 import 'package:easy_notes/ui/views/home.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,9 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => HomeView());
       case '/addNote':
         return MaterialPageRoute(builder: (_) => AddNote());
-      // case '/productDetails' :
-      //   return MaterialPageRoute(
-      //       builder: (_)=> NoteDetails()
-      //   ) ;
+      case '/editNote' :
+        return MaterialPageRoute(builder: (_) => EditNote());
+
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
