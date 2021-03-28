@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_notes/models/note.dart';
 import 'package:easy_notes/services/api/CRUDModel.dart';
+import 'package:easy_notes/ui/widgets/noteCard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,11 +18,11 @@ class _HomeViewState extends State<HomeView> {
     final noteProvider = Provider.of<CRUDModel>(context);
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {  },
-        // onPressed: () {
-        //   Navigator.pushNamed(context, '/addProduct');
-        // },
-        // child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/addNote');
+        },
+        child: Icon(Icons.add),
       ),
       appBar: AppBar(
         title: Center(child: Text('Home')),
@@ -32,11 +33,12 @@ class _HomeViewState extends State<HomeView> {
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasData) {
                 notes = snapshot.data.docs
-                    .map((doc) => Note.fromMap(doc.data(), doc.id)).toList();
+                    .map((doc) => Note.fromMap(doc.data(), doc.id))
+                    .toList();
                 return ListView.builder(
-                  itemCount: notes.length,
-                  itemBuilder: (buildContext, index) =>
-                      Text(notes[index].id)
+                    itemCount: notes.length,
+                    itemBuilder: (buildContext, index) =>
+                        NoteCard(noteDetails: notes[index]),
                 );
               } else {
                 return Text('fetching');
