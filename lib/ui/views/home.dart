@@ -36,9 +36,9 @@ class _HomeViewState extends State<HomeView> {
                     .map((doc) => Note.fromMap(doc.data(), doc.id))
                     .toList();
                 return ListView.builder(
-                    itemCount: notes.length,
-                    itemBuilder: (buildContext, index) =>
-                        NoteCard(noteDetails: notes[index]),
+                  itemCount: notes.length,
+                  itemBuilder: (buildContext, index) =>
+                      NoteCard(noteDetails: notes[index]),
                 );
               } else {
                 return Text('fetching');
@@ -46,6 +46,5 @@ class _HomeViewState extends State<HomeView> {
             }),
       ),
     );
-    ;
   }
 }

@@ -10,8 +10,11 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => HomeView());
       case '/addNote':
         return MaterialPageRoute(builder: (_) => AddNote());
-      case '/editNote' :
-        return MaterialPageRoute(builder: (_) => EditNote());
+      case '/editNote':
+        return MaterialPageRoute(
+            builder: (_) => EditNote(
+                  note: null,
+                ));
 
       default:
         return MaterialPageRoute(

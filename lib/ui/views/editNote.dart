@@ -19,15 +19,15 @@ class EditNote extends StatelessWidget {
           child: Text('Edit Note'),
         ),
         actions: <Widget>[
-        IconButton(
-        iconSize: 35,
-        icon: Icon(Icons.delete_forever),
-        onPressed: ()async {
-          await noteProvider.removeNote(note.id);
-          Navigator.pop(context) ;
-        },
-      ),
-      ],
+          IconButton(
+            iconSize: 35,
+            icon: Icon(Icons.delete_forever),
+            onPressed: () async {
+              await noteProvider.removeNote(note.id);
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(12),
@@ -55,19 +55,19 @@ class EditNote extends StatelessWidget {
               ),
               Expanded(
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextFormField(
-                        maxLines: null,
-                        minLines: 30,
-                        initialValue: note.content,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Note',
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                        onSaved: (value) => note.content = value),
-                  )),
+                padding: EdgeInsets.symmetric(vertical: 8.0),
+                child: TextFormField(
+                    maxLines: null,
+                    minLines: 30,
+                    initialValue: note.content,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Note',
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    onSaved: (value) => note.content = value),
+              )),
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
@@ -77,10 +77,11 @@ class EditNote extends StatelessWidget {
                     Navigator.pop(context);
                   }
                 },
-                child: Text('Update Note', style: TextStyle(color: Colors.white)),
+                child:
+                    Text('Update Note', style: TextStyle(color: Colors.white)),
                 style: ButtonStyle(
                     backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.blue)),
+                        MaterialStateProperty.all<Color>(Colors.blue)),
               )
             ],
           ),

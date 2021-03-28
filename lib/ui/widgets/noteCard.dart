@@ -2,7 +2,6 @@ import 'package:easy_notes/models/note.dart';
 import 'package:easy_notes/ui/views/editNote.dart';
 import 'package:flutter/material.dart';
 
-
 class NoteCard extends StatelessWidget {
   final Note noteDetails;
 
@@ -10,9 +9,10 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector( 
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (_) => EditNote(note: noteDetails)));
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => EditNote(note: noteDetails)));
       },
       child: Padding(
         padding: EdgeInsets.all(8),
@@ -24,20 +24,17 @@ class NoteCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(16),
                   child: Column(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        noteDetails.title??'',
+                        noteDetails.title ?? '',
                         style: TextStyle(
-                            fontSize: 22,
+                          fontSize: 22,
                         ),
                       ),
                       Text(
-                        noteDetails.content??'',
-                        style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.black),
+                        noteDetails.content ?? '',
+                        style: TextStyle(fontSize: 22, color: Colors.black),
                       ),
                     ],
                   ),
@@ -50,4 +47,3 @@ class NoteCard extends StatelessWidget {
     );
   }
 }
-
